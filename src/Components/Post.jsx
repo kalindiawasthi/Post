@@ -7,7 +7,7 @@ function Post({list,loading,onReady}){
   
     return(
        <div className="container-fluid">
-        <div className="d-flex row justify-content-center ">
+        <div id = "row" className="d-flex row justify-content-center ">
         {list.map((i,index) => {
             
            

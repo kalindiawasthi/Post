@@ -7,10 +7,17 @@ body {
 @media (max-width: 479px) {
   body {
     padding: 0px;
+    margin: 0;
+  }
+  #row {
+    padding: 0;
   }
   .card {
     margin-bottom: 10px;
     border: none;
+  }
+  #card {
+    padding: 0;
   }
 }
 @media (min-width: 480px) {
