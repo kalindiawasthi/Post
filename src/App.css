@@ -19,6 +19,22 @@ body {
   #card {
     padding: 0;
   }
+  #row-button {
+    margin-top: 75px;
+  }
+  #like {
+    font-size: 12px;
+    border-radius: 4px;
+    margin-bottom: 12px;
+    margin-right: 4px;
+    margin-left: 4px;
+  }
+  #show {
+    font-size: 12px;
+    border-radius: 4px;
+    margin-bottom: 12px;
+    margin-right: 4px;
+  }
 }
 @media (min-width: 480px) {
   #card {
@@ -29,6 +45,15 @@ body {
     border-radius: 5px;
     border-width: thin;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+  #like {
+    margin-bottom: 40px;
+    margin-right: 40px;
+    font-size: 18px;
+  }
+  #show {
+    margin-bottom: 40px;
+    font-size: 18px;
   }
 }
 /* 
