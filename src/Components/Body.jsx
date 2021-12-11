@@ -1,6 +1,10 @@
-import { useState ,useEffect} from 'react';
-import Post from './Post'
+import Post from './Post';
 
+import { useState ,useEffect} from 'react';
+import { BrowserRouter,
+    Routes,
+    Route } from "react-router-dom";
+    import LikedPost from './LikedPost';  
 
 function Body(){
     const [postList,setPostList]= useState([])
@@ -32,6 +36,21 @@ function Body(){
         setLike(false)
         
     }
+    useEffect(()=>{
+
+        const data = localStorage.getItem('data')
+        
+        if(data){
+            setPostList(JSON.parse(data))
+         }
+        
+        },[])
+        
+        useEffect(()=>{
+        
+          localStorage.setItem('data',JSON.stringify(postList))
+        
+        })
     useEffect(() => {
         if (scroll && !like){
         const onScroll = function () {
@@ -51,7 +70,6 @@ function Body(){
         Promise.all([fetch("https://api.thecatapi.com/v1/images/search?limit=5").then(response => response.json())
         ,fetch("https://catfact.ninja/facts?limit=5&max_length=140").then(response => response.json())])
         //fetch("https://dog.ceo/api/breeds/image/random/5")
-        
         .then(data => { data[0].map((i,index) => {
             
             return setPostList(mi => [...mi,{url : i.url,
@@ -62,15 +80,7 @@ function Body(){
       
             setScroll(true)
                 })
-        //https://dog.ceo/api/breeds/image/random/5
-        //https://api.thecatapi.com/v1/images/search?limit=5
-        // fetch("https://catfact.ninja/facts?limit=5&max_length=140")
-        // .then(response => response.json())
-        // .then(data => {data.data.map(i => {
-        //     return setPostList(li => [...li,{caption :i.fact}]);
-        //     })
-            
-        //     })                
+                  
                 
                
                        
@@ -79,8 +89,14 @@ function Body(){
 
     return(
         <div >
-                <Post list = {postList}   loading = {loading}  onReady= {changeStatus} likePost = {addLike} showLikePost = {showLikePosts} like={like} showAllPost={showAll}/>
-                
+        
+        <BrowserRouter>
+  <Routes>
+  <Route path="/" element={<Post list = {postList}   loading = {loading}  onReady= {changeStatus} likePost = {addLike} showLikePost = {showLikePosts} like={like} showAllPost={showAll}/>} /> 
+  <Route path="/postall" element={<Post list = {postList}   loading = {loading}  onReady= {changeStatus} likePost = {addLike} showLikePost = {showLikePosts} like={like} showAllPost={showAll}/>} /> 
+  <Route path="/likedpost" element={<LikedPost list = {postList}   loading = {loading}  onReady= {changeStatus} likePost = {addLike} showLikePost = {showLikePosts} like={like} showAllPost={showAll} />} /> 
+  </Routes>
+  </BrowserRouter>      
         </div>
         
     )

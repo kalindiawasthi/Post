@@ -22,18 +22,23 @@ body {
   #row-button {
     margin-top: 75px;
   }
+  link {
+    max-width: 100%;
+  }
   #like {
     font-size: 12px;
     border-radius: 4px;
     margin-bottom: 12px;
     margin-right: 4px;
     margin-left: 4px;
+    max-width: 100%;
   }
   #show {
     font-size: 12px;
     border-radius: 4px;
     margin-bottom: 12px;
     margin-right: 4px;
+    max-width: 100%;
   }
 }
 @media (min-width: 480px) {
@@ -50,10 +55,15 @@ body {
     margin-bottom: 40px;
     margin-right: 40px;
     font-size: 18px;
+    max-width: 100%;
   }
   #show {
     margin-bottom: 40px;
     font-size: 18px;
+    max-width: 100%;
+  }
+  link {
+    max-width: 100%;
   }
 }
 /* 
